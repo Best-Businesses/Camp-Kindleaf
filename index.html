@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>🌿 Camp Kindleaf – 100 Campsites of Organic Bliss 🌿</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700;800&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* New background image that scrolls with the page */
+        body {
+            background: url('https://github.com/Best-Businesses/Camp-Kindleaf/raw/main/BG.png') center/cover no-repeat fixed;
+            background-attachment: scroll;  /* scrolls up and down with page */
+            font-family: 'Quicksand', 'Comic Neue', sans-serif;
+            color: #f9f2e0;
+            padding: 2rem 1rem;
+            line-height: 1.5;
+            position: relative;
+        }
+
+        /* Semi-transparent overlay for readability (so text pops over background) */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(20, 30, 10, 0.7);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: rgba(30, 25, 20, 0.8);
+            backdrop-filter: blur(2px);
+            border-radius: 4rem 2rem 4rem 2rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 6px #e9c46a40;
+            padding: 2rem 2rem 2.5rem;
+            transition: all 0.2s;
+        }
+
+        /* Logo: NO WHITE BOX — removed background, padding, border */
+        .logo-wrapper {
+            text-align: center;
+            margin: 1rem 0 1.5rem 0;
+        }
+
+        .floating-logo {
+            max-width: 280px;
+            width: 80%;
+            /* removed white background, padding, border */
+            background: transparent;
+            padding: 0;
+            border: none;
+            box-shadow: 0 25px 35px -12px rgba(0,0,0,0.5);
+            transition: transform 0.2s ease;
+            animation: float 3s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating-logo:hover {
+            transform: scale(1.02);
+            animation: float 1.5s ease-in-out infinite;
+        }
+
+        h1, h2, h3 {
+            font-weight: 800;
+            letter-spacing: -0.3px;
+            text-shadow: 3px 3px 0 #1e3a1a;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            text-align: center;
+            margin: 0.5rem 0 0;
+            background: linear-gradient(135deg, #f9e45b, #c0ffb0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: none;
+        }
+
+        .tagline {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            background: #00000066;
+            display: inline-block;
+            width: auto;
+            margin: 0 auto 1.5rem;
+            padding: 0.5rem 2rem;
+            border-radius: 60px;
+            backdrop-filter: blur(4px);
+        }
+
+        .stoner-joke-bar {
+            background: #f4d03f;
+            color: #2c3e2b;
+            padding: 0.9rem;
+            border-radius: 60px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 0 #b8822b;
+            font-family: 'Comic Neue', monospace;
+        }
+
+        .grid-2col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .card {
+            background: #2f2a24dd;
+            backdrop-filter: blur(8px);
+            border-radius: 2rem;
+            padding: 1.8rem;
+            transition: all 0.2s;
+            border-left: 8px solid #ffb347;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .card h3 {
+            font-size: 1.9rem;
+            border-bottom: 3px dashed #f4a261;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        /* Centered version of the fine-print card */
+        .centered-card {
+            text-align: center;
+        }
+        .centered-card h3 {
+            display: block;
+            text-align: center;
+        }
+        .centered-card .flex-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+        .centered-card .flex-row > div {
+            text-align: left;
+            min-width: 180px;
+        }
+
+        .highlight {
+            background: #e9b35f33;
+            border-radius: 20px;
+            padding: 0.3rem 0.8rem;
+            font-weight: bold;
+            color: #fff0b5;
+        }
+
+        .price-badge {
+            background: #2b2b1a;
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 1.4rem;
+            margin: 0.8rem 0;
+            font-weight: 800;
+        }
+
+        ul, .rules-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            margin: 0.8rem 0;
+            padding-left: 1.8rem;
+            position: relative;
+        }
+
+        li i {
+            position: absolute;
+            left: 0;
+            top: 0.2rem;
+            color: #f7d44a;
+            width: 1.4rem;
+        }
+
+        .small-note {
+            font-size: 0.85rem;
+            background: #1f2a1b;
+            padding: 0.5rem;
+            border-radius: 1rem;
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        .countdown-box {
+            background: #000000aa;
+            border-radius: 2rem;
+            text-align: center;
+            padding: 1.2rem;
+            margin-bottom: 1.2rem;
+            font-weight: bold;
+            backdrop-filter: blur(5px);
+        }
+
+        #countdown {
+            font-size: 2rem;
+            font-family: monospace;
+            letter-spacing: 5px;
+            background: #2c2b1f;
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 2rem;
+        }
+
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            border-top: 2px solid #ffcf6e;
+            padding-top: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 700px) {
+            .container {
+                padding: 1rem;
+            }
+            h1 {
+                font-size: 2.4rem;
+            }
+            .floating-logo {
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Logo with no white box! -->
+    <div class="logo-wrapper">
+        <img class="floating-logo" src="https://github.com/Best-Businesses/Camp-Kindleaf/raw/main/Logo.png" 
+             alt="Camp Kindleaf logo - leaf and flame" 
+             onerror="this.onerror=null; this.src='https://placehold.co/600x200/4a6b3a/fff?text=🌿+Camp+KindLeaf+🌿';">
+    </div>
+
+    <h1>🌲 Camp Kindleaf 🌲</h1>
+    <div style="text-align: center; margin-top: -0.5rem;">
+        <span class="tagline"><i class="fas fa-seedling"></i> Where the grass is always greener (legally) <i class="fas fa-cannabis"></i></span>
+    </div>
+
+    <!-- Joke zone -->
+    <div class="stoner-joke-bar" id="jokeBox">
+        <i class="fas fa-smile-wink"></i> Stoner wisdom: <span id="stonerJoke">"Don't be a drag, just be a plant parent."</span> <i class="fas fa-joint"></i>
+    </div>
+
+    <!-- countdown -->
+    <div class="countdown-box">
+        <i class="fas fa-fire"></i> 🔥 GRAND OPENING: JULY 1, 2026 🔥 <i class="fas fa-campground"></i><br>
+        <span id="countdown">-- days -- hrs -- min -- sec</span>
+        <div class="small-note">Only 100 campsites available for the highest journey! Each campsite = 40ft x 50ft of private forest edge. <i class="fas fa-tree"></i></div>
+    </div>
+
+    <!-- MAIN INFO GRID -->
+    <div class="grid-2col">
+        <!-- left: membership & costs -->
+        <div class="card">
+            <h3><i class="fas fa-hand-holding-usd"></i> Join the KindLeaf Krew</h3>
+            <div class="price-badge">💵 Buy-In: $1,000 → 40ft x 50ft private campsite</div>
+            <p><strong>🌱 Monthly Dues: $100</strong> — covers water, trash, portable loos (first 60 days), future septic, & community upgrades! Every puff… I mean, penny goes to infrastructure & shared dreams.</p>
+            <p>✔️ <strong>What’s included:</strong> Electric hookups (expanding to each site), water, waste removal, portable toilets, & full access to common areas + daily community meals <i class="fas fa-utensils"></i>.</p>
+            <p>⚠️ <strong>Cancellation buzzkill:</strong> If you cancel after paying, a <span class="highlight">20% cancellation fee</span> is deducted from your refund. We’ll cry, but rules are rules.</p>
+            <div class="small-note"><i class="fas fa-users"></i> 🔥 ONLY <strong>100 CAMPSITES</strong> available in this enchanted forest. First come, first baked — claim your patch!</div>
+        </div>
+
+        <!-- right: medical marijuana -->
+        <div class="card">
+            <h3><i class="fas fa-leaf"></i> Green Gardens Welcome</h3>
+            <p><strong>🌿 Medical Mary Jane 🌿</strong> — Grow your own personal medical marijuana if you have a valid recommendation from a licensed Oklahoma doctor. You must follow all Oklahoma Medical Marijuana laws (plant limits, secure grow, etc.).</p>
+            <p><i class="fas fa-check-circle"></i> Camp Kindleaf is <strong>100% compliant</strong> with state cannabis regulations. Show your card, spark your green thumb! <i class="fas fa-laugh-beam"></i></p>
+            <div class="small-note">🎄 "We’re not saying we like weed, but the community center has a 'high' five corner."</div>
+        </div>
+    </div>
+
+    <!-- organic farm + equal profit sharing added -->
+    <div class="grid-2col">
+        <div class="card">
+            <h3><i class="fas fa-tractor"></i> Certified Organic Farm & Nursery</h3>
+            <ul>
+                <li><i class="fas fa-apple-alt"></i> Sell organic produce at farmers markets + onsite farm stand (veggies, fruits, fresh plants).</li>
+                <li><i class="fas fa-egg"></i> <strong>Farm fresh eggs</strong> — we hold an egg handlers license! Breakfast just got cluckin' good.</li>
+                <li><i class="fas fa-carrot"></i> Sell veggie & fruit plants to the public (tomatoes, peppers, herbs, & more).</li>
+                <li><i class="fas fa-rabbit"></i> <strong>Rabbit fertilizer biz</strong> — our fluffy bunnies produce “black gold” for your garden, sold at markets & stand.</li>
+                <li><i class="fas fa-utensils"></i> <strong>Daily Community Meals</strong> — farm-to-table vibe, prepared with love.</li>
+            </ul>
+            <div class="small-note"><i class="fas fa-coins"></i> <strong>💰 PROFIT SHARING:</strong> Every member (each campsite) earns an <strong>equal percentage</strong> of all money made from Camp Kindleaf activities — including farmers market sales, plant sales, eggs, rabbit fertilizer, and any community-run enterprise! We rise together. 🌱✨</div>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-gavel"></i> HOA Rules... The Bare Necessities</h3>
+            <ul>
+                <li><i class="fas fa-ban"></i> No violence – keep the good vibes flowin'</li>
+                <li><i class="fas fa-skull-crossbones"></i> 3 rule violations = community can vote you out (90% supermajority required).</li>
+                <li><i class="fas fa-gun"></i> NO shooting guns onsite (we prefer shooting the breeze).</li>
+                <li><i class="fas fa-piggy-bank"></i> NO hog or pig farm – sorry, no swine & dank.</li>
+                <li><i class="fas fa-moon"></i> Quiet hours: 10 PM – 6 AM daily (unless you're in the community center chillin').</li>
+                <li><i class="fas fa-dog"></i> <strong>2 animals max per resident</strong> — each animal pays a <span class="highlight">$100 deposit</span> (refundable if no major damages).</li>
+                <li><i class="fas fa-vote-yea"></i> Upgrades after initial utilities/septic/structures? <strong>Community vote</strong> decides! Democracy with a doobie.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- location + utilities -->
+    <div class="grid-2col">
+        <div class="card">
+            <h3><i class="fas fa-map-marker-alt"></i> The Stoney Grounds</h3>
+            <p><strong>🌲 Macomb, Oklahoma — forest area</strong> (cleared campsites ready for tents, tiny homes, or RVs).</p>
+            <p><i class="fas fa-toilet"></i> First 60 days = luxury porta-potties. After that — brand new septic & bathrooms installed (dues cover it).</p>
+            <p><i class="fas fa-charging-station"></i> Electric utilities start at community center, then expand to every campsite. Light up your bong... uh, lights.</p>
+            <p><strong>🏪 Closest store:</strong> Gas station 1 mile (snacks, ice, suspicious hot dogs). <strong>🛒 Grocery store:</strong> 10 miles. <strong>🌆 Big city life:</strong> Shawnee, OK ~25 min drive.</p>
+            <div class="small-note"><i class="fas fa-tree"></i> Water, trash, portable toilets all included in $100/month.</div>
+        </div>
+
+        <div class="card">
+            <h3><i class="fas fa-hand-peace"></i> Perks & Policies</h3>
+            <ul>
+                <li><i class="fas fa-seedling"></i> <strong>Upgrade Democracy:</strong> After basics (water/elec/septic), every upgrade goes to a community vote.</li>
+                <li><i class="fas fa-coins"></i> <strong>Equal profit split</strong> from all Kindleaf commercial activities — farmers markets, plant sales, eggs, rabbit manure. Every campsite gets the same percentage.</li>
+                <li><i class="fas fa-smile"></i> Daily family-style meals = No hangry campers.</li>
+                <li><i class="fas fa-calendar-alt"></i> Opens July 1, 2026 — be among the first 100 campsites.</li>
+                <li><i class="fas fa-hand-holding-heart"></i> Deposit for animal companion: only $100 per animal (max 2 furry friends). No hogs or piggies.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- FINAL INFO — centered version of 420% Awesome section -->
+    <div class="card centered-card" style="margin-top: 0.5rem;">
+        <h3><i class="fas fa-campground"></i> 420% Awesome — The Fine Print (but funny)</h3>
+        <div class="flex-row">
+            <div><i class="fas fa-tree"></i> <strong>100 campsites max</strong> — each 40'x50' private plot.</div>
+            <div><i class="fas fa-dollar-sign"></i> <strong>Animal deposit:</strong> $100 per pet (2 max). Refundable (no shredded tents).</div>
+            <div><i class="fas fa-thumbs-up"></i> <strong>Cancelation 101:</strong> 20% fee if you back out — get 80% back, plus a sad trombone.</div>
+            <div><i class="fas fa-tint"></i> <strong>Portable toilets:</strong> first 60 days — then real bathrooms. All included!</div>
+            <div><i class="fas fa-hand-holding-usd"></i> <strong>Equal profit share:</strong> Every campsite earns same % from all community sales.</div>
+        </div>
+        <div class="small-note" style="margin-top: 1rem; text-align: center;">
+            🌟 <strong>Upgrade voting:</strong> Camp Kindleaf runs by the members. Wanna build a pizza oven? A yurt cinema? Vote! 🌟
+        </div>
+    </div>
+
+    <footer>
+        <i class="fas fa-cannabis"></i> Camp Kindleaf — Macomb, OK • <strong>No pig farms, no violence, only love & legal herb</strong> • <i class="fas fa-tree"></i><br>
+        © 2026 | Stoner-owned & operated | "Come for the soil, stay for the toke... and rabbit gold"
+    </footer>
+</div>
+
+<script>
+    // Stoner joke generator
+    const jokes = [
+        "Why do stoners love nature? Because it's naturally high. 🌲",
+        "What did the farmer say after planting medical marijuana? 'Herb your enthusiasm!' 💚",
+        "How many Camp Kindleaf members does it take to screw in a lightbulb? 5 – one to hold the bulb, and four to talk about the old one's glow. 😂",
+        "Knock knock. Who's there? Ganja. Ganja who? Ganja believe we're opening July 2026?",
+        "What's the official Camp Kindleaf bird? The High Hawk! 🦅",
+        "Rabbit fertilizer joke: It’s no bunny business — it's pure gold! 💩✨",
+        "Why don't we allow pigs? They can't get a medical card. 🐷❌",
+        "Our quiet hours are 10pm–6am… unless you're in the community center passing the peace pipe (tobacco-free, obviously).",
+        "What's the difference between a tent and a grow room? One is for sleeping, the other for ‘sleeping’ plants. 😉",
+        "First rule of Camp Kindleaf: you DO talk about Camp Kindleaf — while sharing compost tips."
+    ];
+
+    let jokeIndex = 0;
+    const jokeSpan = document.getElementById('stonerJoke');
+    function rotateJoke() {
+        if (jokeSpan) {
+            jokeSpan.textContent = jokes[jokeIndex % jokes.length];
+            jokeIndex++;
+        }
+    }
+    rotateJoke();
+    setInterval(rotateJoke, 7500);
+
+    // Countdown to July 1, 2026
+    function getCountdown() {
+        const openingDate = new Date(2026, 6, 1, 0, 0, 0, 0);
+        const now = new Date();
+        const diff = openingDate - now;
+
+        if (diff <= 0) {
+            document.getElementById('countdown').innerHTML = "🔥 WE'RE OPEN! CLAIM YOUR CAMPSITE 🔥";
+            return;
+        }
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (86400000)) / (3600000));
+        const minutes = Math.floor((diff % 3600000) / 60000);
+        const seconds = Math.floor((diff % 60000) / 1000);
+
+        document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s until paradise unlocks!`;
+    }
+
+    getCountdown();
+    setInterval(getCountdown, 1000);
+
+    // Logo click fun
+    const logoImg = document.querySelector('.floating-logo');
+    if(logoImg) {
+        logoImg.addEventListener('click', () => {
+            alert("🌬️ *puff* 100 campsites available! Equal profit share for everyone. July 1st, 2026 – bring your OK med card & organic dreams! ✨");
+        });
+    }
+</script>
+</body>
+</html>
