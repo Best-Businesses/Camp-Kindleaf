@@ -46,6 +46,82 @@
             transition: all 0.2s;
         }
 
+        /* ===== VIDEO HERO SECTION (top) - FIXED FULL VISIBILITY ===== */
+        .video-hero {
+            max-width: 1300px;
+            margin: 0 auto 2rem auto;
+            background: rgba(20, 25, 15, 0.75);
+            backdrop-filter: blur(4px);
+            border-radius: 3rem 2rem 3rem 2rem;
+            padding: 1.5rem 1.5rem 1.8rem 1.5rem;
+            box-shadow: 0 20px 30px rgba(0,0,0,0.3), 0 0 0 3px #f4a26180;
+        }
+
+        .adventure-title {
+            text-align: center;
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #FFD966, #C5E99B, #F9E45B);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            letter-spacing: -0.5px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            background: #00000055;
+            border-radius: 1.8rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Fix: video fully visible, no cropping */
+        .video-wrapper video {
+            width: 100%;
+            height: auto;
+            max-height: 70vh;
+            object-fit: contain;  /* ensures full frame visible without cropping */
+            display: block;
+            border-radius: 1.5rem;
+            background: #1a2a0e;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .video-caption {
+            text-align: center;
+            margin-top: 0.75rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #FFE2A4;
+            background: #1e2a1e80;
+            display: inline-block;
+            width: auto;
+            padding: 0.2rem 1.2rem;
+            border-radius: 40px;
+            backdrop-filter: blur(5px);
+        }
+
+        @media (max-width: 700px) {
+            .adventure-title {
+                font-size: 1.9rem;
+            }
+            .video-hero {
+                padding: 1rem;
+            }
+            .video-wrapper video {
+                max-height: 50vh;
+            }
+            body {
+                padding: 1rem;
+            }
+        }
+
         /* Logo: NO box, TWICE as big */
         .logo-wrapper {
             text-align: center;
@@ -53,7 +129,7 @@
         }
 
         .floating-logo {
-            max-width: 520px;  /* was 260px — twice as big */
+            max-width: 520px;
             width: 85%;
             background: transparent !important;
             border: none !important;
@@ -240,14 +316,6 @@
             margin-bottom: 1rem;
         }
 
-        .highlight {
-            background: #e9b35f33;
-            border-radius: 20px;
-            padding: 0.2rem 0.6rem;
-            font-weight: bold;
-            color: #fff0b5;
-        }
-
         .price-badge {
             background: #2b2b1a;
             display: inline-block;
@@ -347,6 +415,27 @@
     </style>
 </head>
 <body>
+
+<!-- ========== VIDEO AT TOP - FULLY VISIBLE ========== -->
+<div class="video-hero">
+    <h2 class="adventure-title">🌿 Adventures at Camp Kindleaf 🌿</h2>
+    <div class="video-wrapper">
+        <video 
+            id="heroVideo"
+            src="https://github.com/Best-Businesses/Camp-Kindleaf/raw/main/butterfinger1.mp4" 
+            autoplay 
+            muted 
+            loop 
+            playsinline 
+            controls
+            preload="auto">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="video-caption">
+        <i class="fas fa-play-circle"></i> Explore the trails, campfires & community — watch the full journey
+    </div>
+</div>
 
 <div class="container">
     <!-- Logo: twice as big, no box -->
